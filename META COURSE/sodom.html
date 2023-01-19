@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title >diabli samochód</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/bootstrap.min.css">
         <link rel="stylesheet" href="styles/styles.css">
 
     </head>
@@ -11,12 +11,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-8 ramka">
-
                     <img src="obrazy/devilmobile.JPG" 
                     alt="auto diabła" class="img-fluid">
+                    <audio class="odtwarzacz" controls>
+                        <source src="music/wieprz1adrum1.mp3" type="audio/mpeg">
+                    </audio>
                 </div>
                 <div class="col-12 col-sm-4 ramka">
                         <h1>samochód, którym nadjechał diabeeeeł</h1>
+                        <canvas id="my_canvas" class="plotno">
+
+                        </canvas>
                 </div>
             </div>
                 <div class="row">
@@ -51,6 +56,76 @@
                 </tbody>
             </table>
         </div>
+        <div class="container ramka">
+            <form>
+                  <div>
+                    <label for="user_first_name">Imię:</label><br>
+                    <input type="text" id="user_first_name" name="user_first_name" required>
+                 </div>
+                 <div>
+                    <label for="user_last_name">Nazwisko:</label><br>
+                    <input type="text" id="user_last_name" name="user_last_name" required>
+                </div>
+                 <div>
+                    <label for="user_email">e-mail:</label><br>
+                    <input type="email" id="user_email" name="user_email" required>
+                </div>
+                <div>
+                    <laber for="user_password">hasło (min. 6 znaków):</laber><br>
+                    <input type="password" id="user_password" name="user_password" required minlength="6">
+                </div>
+                <div>
+                    <label for="user_confirm_password">potwierdź hasło:</label><br>
+                    <input type="password" id="user_confirm_password" name="user_confirm_password" required minlength="6">
+                </div>
+                <div>
+                    <h3>czy jesteś rozwietlitką?</h3>
+                    <fieldset id="rozwielitka">
+                        <input type="radio" value="true" name="rozwielitka"> tak --- 
+                        <input type="radio" value="false" name="rozwielitka" checked> nie 
+                    </fieldset>
+                    <h3>ilu brontozaurów jest na świecie?</h3>
+                    <fieldset id="brontozaur"> 
+                        <input type="radio" value="1" name="brontozaur"> jeden --- 
+                        <input type="radio" value="3" name="brontozaur"> trzech --- 
+                        <input type="radio" value="1000" name="brontozaur" checked> bez liku
+                    </fieldset>
+                </div>
+                    <br>
+                <div class="container ramka">
+                    <div>
+                        <label for="urodziny"><h3>kiedy urodził się brontozaur Himler?</h3></label><br>
+                        <input type="date" id="urodziny" name="urodziny">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="kolork"><h3>jakiego koloru była czapka megalomana?</h3></label><br>
+                        <input id="kolork" name="kolork" list="kolorki">
+                        <datalist id="kolorki">
+                            <option value="czerwony"></option>
+                            <option value="bordowy"></option>
+                            <option value="brunatny"></option>
+                            <option value="piktyjski"></option>
+                        </datalist>
+                   </div>
+                   <br><br>
+                   <div>
+                                <label for="number_of_ppl">ile masz kończyn:</label>
+                                <input type="range" id="number_of_ppl" name="number_of_ppl" min="1" max="8" value="2"
+                                 oninput="this.nextElementSibling.value=this.value">
+                              <output for="number_of_ppl" name="number_of_ppl">2</output>
+                    </div>
+                    <br><br>
+              </div>
+            <div>
+                <button type="submit" class="przycisk">JEDZIEM !</button>
+            </div>
+        </form>
+
         </div>
+
+    </div>
+    <script src="styles/bootstrap.bundle.min.js"></script>
+    <script src="styles/skrypt.js"></script>
     </body>
 </html>

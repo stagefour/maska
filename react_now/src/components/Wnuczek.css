@@ -1,0 +1,16 @@
+.wnusio {
+    width: 150px;
+    background-color: yellowgreen;
+    text-align: center;
+    color: black;
+    padding: 1px;
+    margin: 3px;
+    margin-left: 25px;
+    font-size: 15px;
+    text-shadow: none;
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    box-shadow: 2px 2px 2px lightblue;
+    border-radius: 2em;
+}

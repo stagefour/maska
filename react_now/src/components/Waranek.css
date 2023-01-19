@@ -1,0 +1,33 @@
+@keyframes tanecznie {
+    0% { transform: skewX(30deg);
+        transform: skewY(-5deg);
+        translate: 0px 0px; }
+
+    50% { transform: skewX(-30deg);
+        transform: skewY(5deg);
+        translate: 40px 0px; }
+
+    100% { transform: skewX(30deg);
+        transform: skewY(-5deg);
+        translate: 0px 0px; }
+
+}
+
+.grubyKwadrat {
+
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    height: 30px;
+    width: 150px;
+    color:dimgray;
+    text-align: center;
+    text-shadow: 4px 5px 15px white;
+    box-shadow: -3px -3px 10px black;
+    background-color: black;
+    border-style: solid;
+    border-radius: 6px;
+    border-color: gray;
+    border-width: 2px;
+    animation: tanecznie 2s infinite ease-in-out;
+}

@@ -1,0 +1,31 @@
+.main-nav {
+    width: 200px;
+    padding: 1px;
+    margin: auto;
+    font-size: 20px;
+    text-shadow: 2px 2px;
+    border: 1px;
+    border-color: black;
+    box-shadow: 3px 3px 3px black;
+    border-radius: 2em;
+    border-style: solid;
+}
+
+.guzik {
+    border: 2px;
+    padding-top: 6px;
+    border-color: gray;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px lightblue;
+    background-color: black;
+}
+
+.guzik:hover {
+    background-color: gray;
+}
+
+.guzik:active {
+    box-shadow: 1px 1px 3px lightblue;
+    background-color: lightgrey;
+}
+

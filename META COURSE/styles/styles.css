@@ -3,6 +3,7 @@
 }
 
 .ramka {
+    position: relative;
     text-align: center;
     margin-top: 10px;
     padding: 1px;
@@ -10,6 +11,47 @@
     border-color: black;
     border-width: 2px;
 }
+
+.ramka2 {
+    position: relative;
+    text-align: center;
+    padding: 5px;
+    height: auto;
+    margin: 5px;
+    background-color: bisque;
+    border-style: solid;
+    border-width: 2px;
+    border-color: blue;
+    border-radius: 1em;
+    box-shadow: 2px 3px 5px black;
+
+}
+
+
+.pykczer {
+    max-width: 450px;
+    height: auto;
+    margin: 10px;
+    box-shadow: 2px 2px 20px black;
+}
+
+
+
+.swing {
+    text-shadow: 2px 2px 5px black;
+    opacity: 100%
+}
+
+.swing:hover { 
+    box-shadow: 2px 3px 5px white inset;
+    background-color: black;
+    color:gainsboro;
+    text-shadow: 3px 3px 15px white;
+    opacity: 80%;
+
+    transition: 3s;
+}
+
 
 .przycisk {
     cursor: pointer;
@@ -29,7 +71,33 @@ button:hover {
     color: magenta;
 }
 
-.left {
+input[type=text], [type=password], [type=email] { box-shadow: -2px -2px 5px black;}
+
+input:invalid { 
+    box-shadow: 2px 2px 5px red;}
+
+.odtwarzacz {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    border-style: solid;
+    padding: 3px;
+    border-width: 2px;
+    border-color: aqua;
+    border-radius: 1em;
+}
+
+.plotno {
+    position: relative;
+    width: 85%;
+    border-style: solid;
+    padding: 3px;
+    border-width: 2px;
+    border-color: blue;
+    border-radius: 1em;
+}
+
+.lewo {
     text-align: left;
 }
 
@@ -44,4 +112,106 @@ button:hover {
     border-color: black;
     border-width: 2px;
     border-radius: 1em;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+}
+
+.griddy {
+    display: grid;
+    max-width: 1200px;
+    min-height: 50vh;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas: "header" "left" "main" "right" "footer";
+}
+/* Add media rules for container class below */
+@media (min-width: 440px) {
+    .griddy {
+      display: grid;
+      grid-template-columns: 150px 1fr 150px;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas: "header header header" 
+                           "left main right" 
+				                	 "footer footer footer";
+    }
+}
+
+
+/* Properties for other selectors */
+.header {
+    grid-area: header;
+    padding: 10px;
+    background-color:black;
+    color: #fff;
+    text-align: center;
+}
+  
+.main {
+    grid-area: main;
+    padding: 25px;
+    text-align: center;
+}
+  
+.left {
+    grid-area: left;
+    background-color: peachpuff;
+    text-align: center;
+  }
+  
+.right {
+    grid-area: right;
+    text-align: center;
+  }
+  
+.footer {
+    grid-area: footer;
+    padding: 10px;
+    background-color:black;
+    color: #fff;
+    text-align: center;
+  }
+  
+.sidebar {
+    padding: 25px;
+    background-color:darkcyan;
+  }
+
+
+@keyframes tanecznie {
+    0% { transform: skewX(30deg);
+        transform: skewY(-5deg);
+        translate: 0px 0px; }
+
+    50% { transform: skewX(-30deg);
+        transform: skewY(5deg);
+        translate: 40px 0px; }
+
+    100% { transform: skewX(30deg);
+        transform: skewY(-5deg);
+        translate: 0px 0px; }
+
+}
+
+#gruby_kwadrat {
+
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    height: 30px;
+    width: 150px;
+    color:dimgray;
+    text-align: center;
+    text-shadow: 4px 5px 15px white;
+    box-shadow: -3px -3px 10px black;
+    background-color: black;
+    border-style: solid;
+    border-radius: 6px;
+    border-color: gray;
+    border-width: 2px;
+    animation: tanecznie 2s infinite ease-in-out;
 }
