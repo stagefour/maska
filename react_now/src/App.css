@@ -1,3 +1,10 @@
+.maindiv {
+  background-image: url('./Assets/dots.png');
+  height: 100vh;
+  padding: 10px;
+}
+
+
 .nawigacja {
   text-align: center;
   background-color: antiquewhite;
@@ -7,7 +14,7 @@
   border-style: solid;
   border-color: black;
   border-width: 1px;
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 2px grey;
 }
 
 .nav-item {

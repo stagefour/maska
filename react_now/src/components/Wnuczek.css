@@ -1,11 +1,15 @@
 .wnusio {
-    width: 150px;
-    background-color: yellowgreen;
+    width: 80%;
+    position: fixed;
+    left: 10vw;
+    top: 30vh;
+    background-color: red;
     text-align: center;
     color: black;
-    padding: 1px;
+    padding: 10px;
     margin: 3px;
-    margin-left: 25px;
+    margin: auto;
+    margin-top: 15px;
     font-size: 15px;
     text-shadow: none;
     border: 1px;

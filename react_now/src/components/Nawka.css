@@ -1,18 +1,21 @@
 .main-nav {
-    width: 200px;
-    padding: 1px;
+    position: relative;
+    color: antiquewhite;
+    width: 23%;
+    padding: 5px;
     margin: auto;
     font-size: 20px;
-    text-shadow: 2px 2px;
+    text-shadow: 1px 1px;
     border: 1px;
     border-color: black;
-    box-shadow: 3px 3px 3px black;
+    box-shadow: 3px 3px 3px grey;
     border-radius: 2em;
     border-style: solid;
 }
 
 .guzik {
     border: 2px;
+    color: white;
     padding-top: 6px;
     border-color: gray;
     border-radius: 5px;
@@ -25,7 +28,48 @@
 }
 
 .guzik:active {
-    box-shadow: 1px 1px 3px lightblue;
+    box-shadow: 1px 1px 3px blue;
     background-color: lightgrey;
 }
 
+.formularz
+{
+    position: relative;
+    background-color: whitesmoke;
+    width: 33%;
+    margin: auto;
+    margin-top: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 7px;
+    box-shadow: 3px 3px 3px gray;
+    padding: 4px;
+}
+
+.field {
+    margin: 4px;
+}
+
+.czyszczenie {
+    position: absolute;
+    right: -10px;
+    top: 5px;
+    border: 2px;
+    padding-top: 4px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px lightblue;
+    background-color: grey;
+}
+
+.czyszczenie:hover {
+    background-color: lightgray;
+}
+
+.czyszczenie:active {
+    box-shadow: 1px 1px 3px blue;
+    background-color: white;
+}

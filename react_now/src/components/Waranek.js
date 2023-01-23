@@ -3,22 +3,11 @@ import './Waranek.css';
 
 export default function Waranek (props) {
 
-    let o = props.ok;
 
-    if (o===true) {
-
-    return (
+    return props.ok ? (
         <div className='grubyKwadrat'>
-            <b>"(C) VARAN 2023"</b>
+            <b>(C) VARAN 2023</b>
         </div>
-    );
+    ) : ( null );
 
-    }
-
-    else {
-
-
-        return null;
-
-    }
 }
