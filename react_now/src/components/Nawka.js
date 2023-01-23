@@ -49,7 +49,6 @@ function Nawka() {
     return (
         <><div className='main-nav'
             style={{ backgroundColor: tlo }}>
-            
         <button className='czyszczenie' onClick={czyscDane}><img src={logout} alt="wyczysc to"></img></button>
                 <ol>
                     <li>{cechy[0]}</li>              
@@ -63,7 +62,7 @@ function Nawka() {
         <div className='formularz'>
         <form>
             <fieldset>
-                <h2>moj formularz</h2>
+                <h2>zaawansowany panel sterowania</h2>
                 <div className='field'>
                     <label>Które pole zmieniamy: {wynik} *</label>
                     <input
@@ -96,17 +95,17 @@ function Nawka() {
                 </div>              
  
                 
-                <button type="submit" onClick={clickHandler} className='guzik'><img src={waran} alt='waran'></img> POTWIERDŹ</button>                                
-            </fieldset>
+                <button type="submit" disabled={widzeWnusia==="block"} onClick={clickHandler} className='guzik'><img src={waran} alt='waran'></img> POTWIERDŹ</button>                                
+            </fieldset> 
         </form>
         <Wnuczek widocznosc={widzeWnusia}>
                 <h4>PUSTY KOMENTARZ</h4>
                 <p>Wpisałeś pan pusty tekst</p>
                 <button className='guzik' onClick={() => ustalWidocznoscWnusia("none")}>ROZUMIEM</button>
-        </Wnuczek>
+        </Wnuczek>   
         </div>
         </>
     )
-}
+};
 
 export default Nawka;

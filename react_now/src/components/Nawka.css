@@ -14,6 +14,8 @@
 }
 
 .guzik {
+    display: block;
+    margin: auto;
     border: 2px;
     color: white;
     padding-top: 6px;
@@ -32,8 +34,12 @@
     background-color: lightgrey;
 }
 
+.guzik:disabled {
+    display: none;
+}
+
 .formularz
-{
+{   
     position: relative;
     background-color: whitesmoke;
     width: 33%;

@@ -3,6 +3,7 @@ import './App.css';
 import Czlowiek from './components/Czlowiek';
 import Nawka from './components/Nawka';
 import Waranek from './components/Waranek';
+import Szczescie from './components/Szczescie';
 import notes from './Assets/notes.png'
 import { useState, useRef, useEffect } from 'react'; 
 import { Routes, Route, Link } from 'react-router-dom';
@@ -21,7 +22,6 @@ const piosenka = useRef(new Audio (shoop));
 useEffect (() => { document.title = widocznosc ? "VARAN i muzyczka" : "VARAN po cichu" }, [widocznosc]);
 
 
-document.title = "VARAN";
 
 
 function clickHandler () {
@@ -40,8 +40,9 @@ function clickHandler () {
  return ( <div className='maindiv'>
     <Waranek ok={widocznosc} />
     <nav className='nawigacja'>
-        <Link to="/" className="nav-item">Czlowiek</Link>
+        <Link to="/" className="nav-item">Człowiek</Link>
         <Link to="/formularz" className="nav-item">Formularz</Link>
+        <Link to="/szczescie" className="nav-item">Myszka</Link>
         <button onClick={clickHandler} className='nutka'><img src={notes} alt='nutki'></img></button>
     </nav>
  
@@ -49,6 +50,7 @@ function clickHandler () {
     <Routes>
         <Route path="/" element={<Czlowiek tekst="TU CZŁOWIEK" />} />
         <Route path="/formularz" element ={<Nawka />} />
+        <Route path="/szczescie" element ={<Szczescie />} />
     </Routes>
 
 
