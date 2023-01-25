@@ -14,7 +14,7 @@ import shoop from './Assets/home_song.mp3';
 function App() {
 
 const [widocznosc, ustawWidocznosc] = useState (false);
-const ikona = new Audio (bling);
+const ikona = useRef(new Audio (bling));
 const piosenka = useRef(new Audio (shoop));
 
 
@@ -25,7 +25,7 @@ useEffect (() => { document.title = widocznosc ? "VARAN i muzyczka" : "VARAN po 
 
 
 function clickHandler () {
-    ikona.play();
+    ikona.current.play();
     piosenka.current.loop = true;
 
     if (widocznosc===true) { ustawWidocznosc (false); piosenka.current.pause(); }

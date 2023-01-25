@@ -1,12 +1,14 @@
 .happyDiv {
-    width: 80%;
+    position: relative;
+    width: 60%;
+    height: auto;
     text-align: center;
     margin: auto;
     margin-top: 20px;
+    cursor: crosshair;
 }
 
 .BasicTracker {
-        position: relative;
         text-align: center;
         margin: auto;
         font-size: 20px;
@@ -22,6 +24,11 @@
     
 }
 
-.Row {
+.karciara {
+    border-radius: 4px;
+    box-shadow: 2px 2px 20px black;
+}
 
+.bullet {
+    position: fixed;
 }
