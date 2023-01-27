@@ -20,11 +20,32 @@ import {useAlertContext} from "../context/alertContext";
 const LandingSection = () => {
   const {isLoading, response, submit} = useSubmit();
   const { onOpen } = useAlertContext();
+  const buttonText = "Submit";
 
   const formik = useFormik({
-    initialValues: {},
-    onSubmit: (values) => {},
-    validationSchema: Yup.object({}),
+    initialValues: {
+      firstName: '',
+      email: '',
+      type: 'hireMe',
+      comment: '',
+    },
+    onSubmit: (values) => { 
+      console.log (submit);
+      if (Math.random() > 0.5) {
+      formik.resetForm();
+      onOpen ('success', `Thanks for your submission ${values.firstName}, we will get to you shortly!`) }
+      else { onOpen ('failure', 'Something went wrong, please try again later') };
+     },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Invalid e-mail address")
+        .required("Required"),
+      firstName: Yup.string()
+        .required("Required"),
+      comment: Yup.string()
+        .min(25, "Too short - please enter min. 25 characters")
+        .required("Required")
+    }), 
   });
 
   return (
@@ -39,46 +60,61 @@ const LandingSection = () => {
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
-          <form>
+          <form onSubmit={(e) => { e.preventDefault(); 
+            formik.handleSubmit(e) }}>
             <VStack spacing={4}>
-              <FormControl isInvalid={false}>
+              <FormControl isInvalid={formik.errors.firstName && formik.touched.firstName}>
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
                   id="firstName"
                   name="firstName"
+                  onChange={formik.handleChange}
+                  value={formik.values.firstName}
                 />
-                <FormErrorMessage></FormErrorMessage>
+                <FormErrorMessage>
+                    {formik.errors.firstName}
+                </FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={false}>
+              <FormControl isInvalid={formik.errors.email}>
                 <FormLabel htmlFor="email">Email Address</FormLabel>
                 <Input
                   id="email"
                   name="email"
                   type="email"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
                 />
-                <FormErrorMessage></FormErrorMessage>
+                <FormErrorMessage>
+                    {formik.errors.email}
+                </FormErrorMessage>
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type">
-                  <option value="hireMe">Freelance project proposal</option>
-                  <option value="openSource">
+                <Select id="type" name="type"
+                                  onChange={formik.handleChange}
+                                  value={formik.values.type}>
+                  <option value="hireMe" style={{color: "black"}}>Freelance project proposal</option>
+                  <option value="openSource" style={{color: "black"}}>
                     Open source consultancy session
                   </option>
-                  <option value="other">Other</option>
+                  <option value="other" style={{color: "black"}}>Other</option>
                 </Select>
               </FormControl>
-              <FormControl isInvalid={false}>
+              <FormControl isInvalid={formik.errors.comment && formik.touched.comment}>
                 <FormLabel htmlFor="comment">Your message</FormLabel>
                 <Textarea
                   id="comment"
                   name="comment"
                   height={250}
+                  onChange={formik.handleChange}
+                  value={formik.values.comment}
                 />
-                <FormErrorMessage></FormErrorMessage>
+                <FormErrorMessage>
+                      {formik.errors.comment}
+                </FormErrorMessage>
               </FormControl>
               <Button type="submit" colorScheme="purple" width="full">
-                Submit
+                {buttonText}
               </Button>
             </VStack>
           </form>
