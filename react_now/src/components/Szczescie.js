@@ -1,9 +1,13 @@
 import './Szczescie.css';
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import shot from '../Assets/shot.wav';
 import reload from '../Assets/reload.wav';
+import laughter from '../Assets/laugh.ogg';
+import hammer from '../Assets/hammer.wav';
+import bubble from '../Assets/speechbubble.png';
 import cel from '../Assets/target.jpg';
 import bulletHole from '../Assets/bullethole.png'
+
 
 
 
@@ -54,31 +58,30 @@ const PanelMouseLogger = ({ mousePosition }) => {
 
 
 
+
 const DziuraPoKuli = (props) => {
 
-    const  initialState = [{x: 0, y:0, v:"none"}, {x:0, y:0, v:"none"}, 
-    {x:0, y:0, v:"none"}, {x:0, y:0, v:"none"}, {x:0, y:0, v:"none"}];
-    const [dane, zmienDane] = useState (initialState);
+
+    const [dane, zmienDane] = useState ([{x: 0, y:0, v:"none"}, {x:0, y:0, v:"none"}, 
+    {x:0, y:0, v:"none"}, {x:0, y:0, v:"none"}, {x:0, y:0, v:"none"}]);
 
     useEffect(() => {
     if (props.whichOne === -1) {
-            zmienDane(initialState);
+            zmienDane([{x: 0, y:0, v:"none"}, {x:0, y:0, v:"none"}, 
+            {x:0, y:0, v:"none"}, {x:0, y:0, v:"none"}, {x:0, y:0, v:"none"}]);
             console.log('resetuje Dane');
-            console.log (dane);
     } 
      else { 
         console.log ('pobieram dane');
-        let axisX = props.mousePosition.x;
-        let axisY = props.mousePosition.y;
+  //        let axisX = props.mousePosition.x;
+  //        let axisY = props.mousePosition.y;
         zmienDane(previousState => {
             let przechowalniaCech = [...previousState];
-            przechowalniaCech[props.whichOne].x = axisX;
-            przechowalniaCech[props.whichOne].y = axisY;
+            przechowalniaCech[props.whichOne].x = props.mousePosition.x;
+            przechowalniaCech[props.whichOne].y = props.mousePosition.y;
             przechowalniaCech[props.whichOne].v = 'block';
             return (przechowalniaCech);
         });
-        console.log (dane);
-    
 };
 
     console.log (props.whichOne); },[props.whichOne]);
@@ -113,24 +116,49 @@ const PokazDziurePoKuli = withMousePosition (DziuraPoKuli);
 
 export default function Szczescie () {
     const strzal = useRef (new Audio(shot));
+    const smiech = useRef (new Audio(laughter));
+    const naprawa = useRef (new Audio(hammer));
     const przeladowanie = useRef (new Audio(reload));
     const [licznik, zmienLicznik] = useState(-1);
-
+    const [dymek, zmienWidocznoscDymku] = useState ("none");
 
 
     const shootMe = (e) => {
         e.preventDefault();
 
-        if (licznik === 4) { przeladowanie.current.play (); zmienLicznik(-1); }
-            else { strzal.current.play (); zmienLicznik(licznik+1); };
+        if (licznik === 4) { naprawa.current.play ();
+                            setTimeout (() => {
+                                zmienLicznik(-1);
+                                przeladowanie.current.play ();
+                                setTimeout(() => {            
+                                zmienWidocznoscDymku ("block");
+                                smiech.current.play (); }, 1000) }, 1000) }
+            else { strzal.current.play (); zmienLicznik(licznik+1); zmienWidocznoscDymku("none"); };
 };
 
     return ( 
     <div className='happyDiv flex-container' onClick={shootMe}>
         <h1>SZCZĘŚCIE</h1>
+
+        <div 
+            className='dymek flex-container'
+            style={{display: dymek}}>
+        <img
+            src={bubble}
+            alt='dymek'
+            />
+        <div
+            className='napisDymek'>
+        <h3>STRZELAJ DO WOLI</h3>
+        <h3>SZYBA JEST KULOODPORNA !!!!</h3>
+        </div>
+        </div>
+
+
         <img src={cel} className='img-fluid karciara' alt='karciara'/>
         <PokazDziurePoKuli whichOne={licznik} />
         <PanelMouseTracker />
+
     </div>
     );
 }

@@ -32,3 +32,15 @@
 .bullet {
     position: fixed;
 }
+
+.dymek {
+    position: absolute;
+    left: 67%;
+    top: 5%
+}
+
+.napisDymek {
+    position: absolute;
+    left: 50px;
+    top: 70px;
+}
