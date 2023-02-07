@@ -1,0 +1,26 @@
+.footerElement {
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 85%;
+}
+
+.footer {
+    text-align: center;
+    margin: 4px;
+    margin-top: auto;
+    color: white;
+    background-color: black;
+    border-radius: 7px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    box-shadow: 2px 2px 2px grey;
+}
+
+div > h4 {
+    margin: 1px;
+}
