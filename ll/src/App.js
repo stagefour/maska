@@ -1,5 +1,6 @@
 
 import './App.css';
+import { ChakraProvider } from "@chakra-ui/react";
 import Main from './components/Main';
 import Menu from './components/Menu';
 import BookTable from './components/BookTable';
@@ -7,7 +8,7 @@ import Footer from './components/Footer';
 import HomePage from './components/HomePage';
 import { useEffect } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import lemon from './assets/lemon.jpg';
+import lemon from './assets/little_lemon_logo.png';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <>
+    <ChakraProvider>
     <div className='mainDiv'>
     <nav className='nawigacja'>
             <Link to="/"><img className="lemonImage" src={lemon} alt="lemon"></img></Link>
@@ -31,6 +33,7 @@ function App() {
     </Routes>
     <Footer />
     </div>
+    </ChakraProvider>
     </>
   );
 }

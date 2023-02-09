@@ -1,6 +1,11 @@
+body {
+  background-image: url('./assets/dots.png');
+}
+
 .mainDiv {
   position: relative;
-  height: 97vh;
+  height: auto;
+  padding: 3px;
 }
 
 
@@ -23,8 +28,9 @@
 .nav-item {
   text-decoration: none;
   margin: 4px;
+  width: 200px;
   margin-right: 10px;
-  margin-left: 25px;
+  margin-left: 20px;
   padding: 1px 10px 1px 10px;
   color: black;
   border-style: solid;
@@ -32,7 +38,21 @@
   border-color: black;
   border-radius: 5px;
   background-color: gray;
-  box-shadow: 3px 3px 3px lightblue;
+  box-shadow: 3px 3px 3px lightgray;
+}
+
+@media screen and (max-width: 800px) {
+  .nav-item  {
+    margin-left: 200px; 
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .nav-item  {
+    margin-right: 5px;
+    margin-left: 120px;
+    width: 125px;
+  }
 }
 
 .nav-item:hover {
@@ -48,15 +68,19 @@
   position: absolute;
   float: left;
   left: 5px;
-  width: 28px;
+  top: 7px;
+  width: 100px;
   height: auto;
   object-fit: contain;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
   border-radius: 4px;
-  box-shadow: 3px 3px 1px lightblue;
+  box-shadow: 3px 3px 1px lightgray;
 }
 
 .lemonImage:hover {
-  box-shadow: 3px 3px 1px pink;
+  box-shadow: 3px 3px 1px blue;
 }
 
 
